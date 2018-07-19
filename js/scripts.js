@@ -14,6 +14,10 @@ $(document).ready(function(){
       alert("You cannot open an account without an intital deposit");
       return false;
     }
+    else if ($("input#initialDepositInput").val() < 50){
+      alert("Minimum balance to open an account is Ksh 50");
+      return false;
+    }
 
     var firstName = $("input#firstNameInput").val();
     var lastName = $("input#lastNameInput").val();
@@ -22,14 +26,15 @@ $(document).ready(function(){
     var newAccountHolder = new BankAccount(firstName,lastName,accountBalance);
 
     $("p#accountHolder").text("ACCOUNT HOLDER: "+newAccountHolder.fullName());
-    $("p#balance").text("BALANCE: "+newAccountHolder.balance);//displays initial balance
+    $("p#balance").text("BALANCE: Ksh "+newAccountHolder.balance);//displays initial balance
     resetRegisterFields();
 
     $("#transactionButton").click(function(){
       newAccountHolder.withdraw();
       newAccountHolder.deposit();
-      $("p#balance").text("BALANCE: "+newAccountHolder.balance); //displays updated balance
+      $("p#balance").text("BALANCE: Ksh "+newAccountHolder.balance); //displays updated balance
       resetTransactionFields();
+
     });
   });
   function resetRegisterFields(){
@@ -51,11 +56,30 @@ function BankAccount(first,last,bal){
 
 BankAccount.prototype.deposit = function(){
   var depositAmmount = parseInt($("input#depositInput").val());
-  return this.balance += depositAmmount;
+  if(depositAmmount<0){
+    alert("Transaction failed: You cannot deposit a negative value. ");
+    return false;
+  } else {
+    return this.balance += depositAmmount;
+  }
 }
+
 BankAccount.prototype.withdraw = function(){
   var withdrawAmmount =  parseInt($("input#withdrawInput").val());
-  return this.balance -= withdrawAmmount;
+  if(withdrawAmmount<0){
+    alert("Transaction failed: You cannot withdraw a negative value");
+    return false;
+  }
+  else if(withdrawAmmount > this.balance){
+    alert("Transaction failed: Overdraft are not allowed.");
+    return false;
+  }
+  else if (this.balance - withdrawAmmount < 50){
+    alert("Transaction failed: Minimum balance required in the account is Ksh 50");
+    return false;
+  }else{
+    return this.balance -= withdrawAmmount;
+  }
 }
 
 BankAccount.prototype.fullName = function(){
