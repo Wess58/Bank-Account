@@ -11,11 +11,10 @@ p{
   padding: 0;
 }
 
-/*...............................................*/
-note:This removes the arrow sliders from the number inputs;
+/* This removes the number sliders from the all input types which are numbers */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-/*...............................................*/
+/*..............................................*/
