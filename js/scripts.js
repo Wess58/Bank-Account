@@ -14,10 +14,6 @@ $(document).ready(function(){
       alert("You cannot open an account without an intital deposit");
       return false;
     }
-    else if ($("input#initialDepositInput").val() < 50){
-      alert("Minimum balance to open an account is Ksh 50");
-      return false;
-    }
 
     var firstName = $("input#firstNameInput").val();
     var lastName = $("input#lastNameInput").val();
