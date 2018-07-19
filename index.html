@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bank Account</title>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" type="text/css" rel="stylesheet">
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/scripts.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <form id="accountOpeningForm">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Register Account</h2>
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" class="form-control" id="firstNameInput">
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" class="form-control" id="lastNameInput">
+          </div>
+          <div class="form-group">
+            <label for="last-name">Opening deposit</label>
+            <input type="text" class="form-control" id="initialDepositInput">
+          </div>
+          <button type="submit" class="btn btn-success">Create Account</button>
+        </div>
+        <div class="col-md-6">
+          <h2>Withdraw & Deposit</h2>
+          <div class="form-group">
+            <label for="withdraw">Withdraw</label>
+            <input type="text" class="form-control" id="withdrawInput">
+          </div>
+          <div class="form-group">
+            <label for="deposit">Deposit</label>
+            <input type="text" class="form-control" id="depositInput">
+          </div>
+          <span class="btn btn-primary" id="transactionButton">Make Transaction</span>
+        </div>
+      </div>
+    </form>
+
+    <h4>Current Balance</h4>
+    <p id="accountHolder"></p>
+    <p id="balance"></p>
+
+  </div>
+  <!--END OF CONTAINER-->
+</body>
+
+</html>
