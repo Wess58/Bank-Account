@@ -5,3 +5,16 @@
 h4 {
   margin-top: 30px;
 }
+
+p{
+  margin: 0;
+  padding: 0;
+}
+
+/* This removes the number sliders from the all input types which are numbers */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/*..............................................*/
